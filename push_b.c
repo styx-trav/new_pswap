@@ -1,50 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   if_small.c                                         :+:      :+:    :+:   */
+/*   push_b.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naorakot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 02:26:38 by naorakot          #+#    #+#             */
-/*   Updated: 2024/11/21 02:26:44 by naorakot         ###   ########.fr       */
+/*   Created: 2025/01/13 17:26:49 by naorakot          #+#    #+#             */
+/*   Updated: 2025/01/13 18:22:24 by naorakot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libby.h"
 
-void	small_a(t_main *s)
+void	push_b(t_main *s)
 {
-	t_lst	*lst;
+	int	move;
 
-	lst = s->a;
-	if (ordered(s->a))
+	if (s->size_b < 2)
 	{
-		print(s->last);
+		pa(s);
 		return ;
 	}
-	if (lst->n < lst->next->n && lst->n > lst->back->n)
-	{
-		rra(s);
-		small_a(s);
-		return ;
-	}
-	if (lst->n < lst->back->n)
-	{
-		sa(s);
-		small_a(s);
-		return ;
-	}
-	ra(s);
-	small_a(s);
+	move = find_b(s);
+	
 }
 
-void	small_lst(t_main *s)
+int	find_b(t_main *s)
 {
-	if (s->size == 0 || s->size == 1)
-		return ;
-	if (s->size == 2)
-		if (!ordered(s->a))
-			sa(s);
-	if (s->size == 3)
-		small_a(s);
+	int	move;
+	t_lst	*tmp;
+
+	tmp = s->b;
+	move = 0;
+	while (tmp != s->b->back)
+	{
+		if (tmp->back->n > s->a->n && tmp->n < s->a->n)
+			return (move);
+		if (tmp->back->n < tmp->n)
+			if (tmp->back->n > s->a->n || tmp->n < s->a->n)
+				return (move);
+		move++;
+		tmp = tmp->next;
+	}
+	return (move);
 }
+
+

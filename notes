@@ -17,3 +17,9 @@ parsing ::
 make an int tab first, too big/non-num/etc. check while str-to-num translation (re-alloc here)
 check the tab for doubles
 translate tab into new lst
+
+
+
+for push_b.c ::
+
+pushing above the biggest under, or if min over biggest (or opp)

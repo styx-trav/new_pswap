@@ -28,28 +28,6 @@ void	make_b(t_main *s)
 	}
 }
 
-int	semi_ordered(t_lst *lst)
-{
-	t_lst	*min;
-
-	min = lst_min(lst);
-	if (ordered(min))
-		return (1);
-	return (0);
-}
-
-int	ordered(t_lst *lst)
-{
-	int	tmp;
-
-	tmp = lst->next;
-	while (tmp != lst && tmp->n > tmp->last->n)
-		tmp = tmp->next;
-	if (tmp == lst)
-		return (1);
-	return (0);
-}
-
 t_lst	*lst_min(t_lst *lst)
 {
 	t_lst	*min;
@@ -71,7 +49,7 @@ int	find_a(t_main *s)
 {
 	t_lst	*end;
 	t_lst	*tmp;
-	int	move;
+	int		move;
 
 	end = s->a->back;
 	tmp = s->a;
@@ -101,7 +79,7 @@ void	quick_a(t_main *s, int move)
 			i++;
 			ra(s);
 		}
-	return ;
+		return ;
 	}
 	move = s->size_a - move;
 	while (i < move)

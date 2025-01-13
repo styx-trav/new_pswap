@@ -12,6 +12,20 @@
 
 #include "libby.h"
 
+void	sa_2(t_main *s)
+{
+	if (cmpstr("sb", s->last) == 0)
+	{
+		write(1, "ss\n", 3);
+		s->last = NULL;
+	}
+	else
+	{
+		print(s->last);
+		s->last = "sa";
+	}
+}
+
 void	sa(t_main *s)
 {
 	t_lst	*back;
@@ -31,9 +45,12 @@ void	sa(t_main *s)
 		next->back = tmp;
 		back->next = s->a;
 	}
-	print(s->last);
-	s->last = NULL;
-	if (cmpstr("sb", s->last) == 0)
+	sa_2(s);
+}
+
+void	sb_2(t_main *s)
+{
+	if (cmpstr("sa", s->last) == 0)
 	{
 		write(1, "ss\n", 3);
 		s->last = NULL;
@@ -41,7 +58,7 @@ void	sa(t_main *s)
 	else
 	{
 		print(s->last);
-		s->last = "sa";
+		s->last = "sb";
 	}
 }
 
@@ -64,16 +81,5 @@ void	sb(t_main *s)
 		next->back = tmp;
 		back->next = s->b;
 	}
-	print(s->last);
-	s->last = NULL;
-	if (cmpstr("sa", s->last) == 0)
-	{
-		write(1, "ss\n", 3);
-		s->last = NULL;
-	}
-	else
-	{
-		print(s->last);
-		s->last = "sb";
-	}
+	sb_2(s);
 }
