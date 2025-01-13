@@ -1,0 +1,19 @@
+new approach :: push into b by sorting (card style) as you go
+
+== find spot ; push in ; rinse & repeat
+
+once a is either small or ordered, simple return to sender
+
+== find spot ; push in on repeat ; turn to min.
+
+!! remember, print s->last at end
+
+
+
+
+
+parsing ::
+
+make an int tab first, too big/non-num/etc. check while str-to-num translation (re-alloc here)
+check the tab for doubles
+translate tab into new lst
