@@ -22,8 +22,7 @@ int	count_num(char *str)
 	while (str[i] != '\0')
 	{
 		if (str[i] != ' ')
-			if (i == 0 || str[i - 1] == ' '
-				|| str[i + 1] == '\0' || str[i + 1] == ' ')
+			if (i == 0 || str[i - 1] == ' ')
 				ct++;
 		i++;
 	}
@@ -35,16 +34,15 @@ int	*fill_tab(int *tab, char *str, int size)
 	int	i;
 	int	j;
 
-	i = size - 1;
+	i = size;
 	j = 0;
 	while (str[j] != '\0')
 	{
 		if (str[j] != ' ')
 		{
-			if (j == 0 || str[j - 1] == ' '
-				|| str[j + 1] == '\0' || str[j + 1] == ' ')
+			if (j == 0 || str[j - 1] == ' ')
 			{
-				j = str_to_num_add(&str[j], &tab, i);
+				j = j + str_to_num_add(&str[j], &tab, i);
 				if (j < 0)
 				{
 					free(tab);
@@ -79,7 +77,7 @@ int	str_to_num_add(char *str, int **tab, int i)
 	j = extended_str_to_num(str, &res, j, sign);
 	res = res * sign;
 	(*tab)[i] = res;
-	return (j - 1);
+	return (j);
 }
 
 int	extended_str_to_num(char *str, int *res, int j, int sign)
@@ -90,7 +88,7 @@ int	extended_str_to_num(char *str, int *res, int j, int sign)
 			return (-1);
 		if (j == 9 && check_big(*res, str[j], sign))
 			return (-1);
-		*res = (*res) * 10 + str[j] - '0';
+		*res = ((*res) * 10) + str[j] - '0';
 		j++;
 	}
 	return (j);

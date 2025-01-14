@@ -62,6 +62,7 @@ void		make_b(t_main *s);
 void		quick_a(t_main *s, int move);
 int			find_a(t_main *s);
 t_lst		*lst_min(t_lst *lst);
+int			moves_to_min(t_lst *lst);
 
 //from listing.c
 t_main		*make_main(int *tab, int size);

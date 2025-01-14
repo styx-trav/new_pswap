@@ -20,6 +20,7 @@ t_main	*make_main(int *tab, int size)
 	if (!s)
 		return (NULL);
 	s->a = make_lst(tab, size);
+	free(tab);
 	if (!s->a)
 	{
 		free(s);
@@ -52,6 +53,8 @@ t_lst	*make_lst(int *tab, int size)
 		tmp = tmp->next;
 		i++;
 	}
+	head->back = tmp;
+	tmp->next = head;
 	return (head);
 }
 

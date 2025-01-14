@@ -33,3 +33,18 @@ mov == 1 ; tmp = 9 -- mov = 1 (returned)
 
 maybe its a mix of both ? we could still use the longest list, but instead of leaving b in disarray we could card sort it during the push ==> still too slow visibly ; still ;
 
+
+argc = 2; size = 0; (i =1) ; add = 5;
+argv[1] = "5 2 8 4 6"
+	   02h3456789
+
+tab = (5) = {5, 0, 0, 0, 0}
+
+i = 1;
+j = 1;
+sign = 1;
+res = 2;
+
+!!will need to add a repeat cause (if (last == rra), write nothing for a ra (ex))
+
+

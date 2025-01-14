@@ -52,6 +52,7 @@ void	pb(t_main *s)
 	write(1, "pb\n", 3);
 	s->size_b++;
 	s->size_a--;
+	//disp_tabs(s);
 }
 
 void	pa_pt2(t_main *s, t_lst *tmp)
@@ -95,4 +96,5 @@ void	pa(t_main *s)
 	write(1, "pa\n", 3);
 	s->size_a++;
 	s->size_b--;
+	//disp_tabs(s);
 }

@@ -98,6 +98,7 @@ int	*add_to_tab(int *tab, int size, int add)
 		new_tab[i] = 0;
 		i++;
 	}
-	free(tab);
+	if (tab)
+		free(tab);
 	return (new_tab);
 }

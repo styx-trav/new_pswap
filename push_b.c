@@ -19,7 +19,7 @@ void	push_b(t_main *s)
 
 	if (s->size_b < 2)
 	{
-		pa(s);
+		pb(s);
 		return ;
 	}
 	move = find_b(s);

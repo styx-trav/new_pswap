@@ -26,6 +26,11 @@ void	make_b(t_main *s)
 		quick_a(s, move);
 		pa(s);
 	}
+	if (!ordered(s->a))
+	{
+		move = moves_to_min(s->a);
+		quick_a(s, move);
+	}
 }
 
 t_lst	*lst_min(t_lst *lst)
@@ -45,6 +50,21 @@ t_lst	*lst_min(t_lst *lst)
 	return (min);
 }
 
+int	moves_to_min(t_lst *lst)
+{
+	t_lst	*min;
+	int	i;
+
+	min = lst_min(lst);
+	i = 0;
+	while (lst != min)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
+}
+
 int	find_a(t_main *s)
 {
 	t_lst	*end;
@@ -56,7 +76,7 @@ int	find_a(t_main *s)
 	move = 0;
 	while (tmp != end)
 	{
-		if (tmp->back->n < s->b->n && s->b->n > tmp->n)
+		if (tmp->back->n < s->b->n && s->b->n < tmp->n)
 			return (move);
 		if (tmp->back->n > tmp->n)
 			if (s->b->n > tmp->back->n || s->b->n < tmp->n)
@@ -72,7 +92,7 @@ void	quick_a(t_main *s, int move)
 	int	i;
 
 	i = 0;
-	if (move <= s->size_a / 2 + s->size_a % 2)
+	if (move < s->size_a / 2 + s->size_a % 2)
 	{
 		while (i < move)
 		{

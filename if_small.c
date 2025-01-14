@@ -18,10 +18,7 @@ void	small_a(t_main *s)
 
 	lst = s->a;
 	if (ordered(s->a))
-	{
-		print(s->last);
 		return ;
-	}
 	if (lst->n < lst->next->n && lst->n > lst->back->n)
 	{
 		rra(s);

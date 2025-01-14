@@ -18,19 +18,21 @@ int	main(int argc, char **argv)
 	int		size;
 	t_main	*s;
 
+	size = 0;
 	tab = tab_check(argv, argc, &size);
 	if (!tab)
 		return (0);
 	s = make_main(tab, size);
 	if (!s)
 		return (0);
-	disp_tabs(s);
-	/*if (s->size <= 3)
+	//disp_tabs(s);
+	if (s->size <= 3)
 		small_lst(s);
 	else
 		make_b(s);
 	print(s->last);
-	disp_tabs(s);*/
+	//disp_tabs(s);
+	s->a->back->next = NULL;
 	free_lst(s->a);
 	free(s);
 	return (0);
