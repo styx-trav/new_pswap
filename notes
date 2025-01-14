@@ -23,3 +23,13 @@ translate tab into new lst
 for push_b.c ::
 
 pushing above the biggest under, or if min over biggest (or opp)
+
+65 3 4 8
+
+1 9
+
+
+mov == 1 ; tmp = 9 -- mov = 1 (returned)
+
+maybe its a mix of both ? we could still use the longest list, but instead of leaving b in disarray we could card sort it during the push ==> still too slow visibly ; still ;
+

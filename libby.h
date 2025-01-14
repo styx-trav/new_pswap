@@ -19,7 +19,6 @@
 typedef struct s_lst
 {
 	int				n;
-	int				ll;
 	struct s_lst	*next;
 	struct s_lst	*back;
 }				t_lst;
@@ -81,6 +80,10 @@ int			count_num(char *str);
 int			*fill_tab(int *tab, char *str, int size);
 int			str_to_num_add(char *str, int **tab, int i);
 int			extended_str_to_num(char *str, int *res, int j, int sign);
+
+//from push_b.c
+void		push_b(t_main *s);
+int			find_b(t_main *s);
 
 //from main.c
 int			cmpstr(char *s1, char *s2);

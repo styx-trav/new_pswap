@@ -24,11 +24,15 @@ int	main(int argc, char **argv)
 	s = make_main(tab, size);
 	if (!s)
 		return (0);
-	if (s->size <= 3)
+	disp_tabs(s);
+	/*if (s->size <= 3)
 		small_lst(s);
 	else
 		make_b(s);
 	print(s->last);
+	disp_tabs(s);*/
+	free_lst(s->a);
+	free(s);
 	return (0);
 }
 

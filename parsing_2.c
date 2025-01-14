@@ -39,10 +39,10 @@ int	*fill_tab(int *tab, char *str, int size)
 	j = 0;
 	while (str[j] != '\0')
 	{
-		if (str[i] != ' ')
+		if (str[j] != ' ')
 		{
-			if (i == 0 || str[i - 1] == ' '
-				|| str[i + 1] == '\0' || str[i + 1] == ' ')
+			if (j == 0 || str[j - 1] == ' '
+				|| str[j + 1] == '\0' || str[j + 1] == ' ')
 			{
 				j = str_to_num_add(&str[j], &tab, i);
 				if (j < 0)

@@ -15,6 +15,7 @@
 void	push_b(t_main *s)
 {
 	int	move;
+	int	i;
 
 	if (s->size_b < 2)
 	{
@@ -22,12 +23,23 @@ void	push_b(t_main *s)
 		return ;
 	}
 	move = find_b(s);
-	
+	i = 0;
+	if (move > s->size_b / 2 + s->size_b % 2)
+		move = s->size_b - move;
+	while (i < move)
+	{
+		i++;
+		if (move > s->size_b / 2 + s->size_b % 2)
+			rrb(s);
+		else
+			rb(s);
+	}
+	pb(s);
 }
 
 int	find_b(t_main *s)
 {
-	int	move;
+	int		move;
 	t_lst	*tmp;
 
 	tmp = s->b;
@@ -44,5 +56,3 @@ int	find_b(t_main *s)
 	}
 	return (move);
 }
-
-

@@ -34,8 +34,6 @@ void	disp_tabs(t_main *s)
 		write(1, &a, 1);
 		a = n % 10 + 48;
 		write(1, &a, 1);
-		if (s->a->ll)
-			write(1, "~ ll", 4);
 		write(1, "\n", 1);
 		while (tmp != s->a)
 		{
@@ -51,8 +49,6 @@ void	disp_tabs(t_main *s)
 			write(1, &a, 1);
 			a = n % 10 + 48;
 			write(1, &a, 1);
-			if (tmp->ll)
-				write(1, "~ ll", 4);
 			write(1, "\n", 1);
 			tmp = tmp->next;
 		}
